@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './components/Button';
 import Cards from './components/Cards';
 import Header from './components/Header';
 
 const App = () => {
+  const [dataLimit, setDataLimit] = useState(true);
   return (
-    <div>
+    <>
       <Header></Header>
-      <Cards></Cards>
-      <div className="text-center">
-        <Button>Show all</Button>
-      </div>
-    </div>
+      <Cards dataLimit={dataLimit}></Cards>
+
+      {dataLimit &&
+        <div className='text-center'>
+          <span onClick={() => { setDataLimit(false) }}>
+            <Button>Show all</Button>
+          </span>
+        </div>
+      }
+    </>
   );
 };
 
