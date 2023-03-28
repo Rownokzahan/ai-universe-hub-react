@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
 const Modal = (props) => {
-    const id = props.id;
     const [modalInfo, setModalInfo] = useState({});
-
     const { description, image_link, input_output_examples, pricing, features, integrations, accuracy } = modalInfo;
 
     useEffect(() => {
         const loadData = async () => {
-            const res = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
+            const res = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${props.id}`);
             const data = await res.json();
             setModalInfo(data.data);
+            console.log("useEffect", props.id);
         }
         loadData();
-    }, []);
+    }, [props.id]);
 
     return (
         <>

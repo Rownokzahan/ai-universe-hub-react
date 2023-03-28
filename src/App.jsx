@@ -8,9 +8,9 @@ const App = () => {
     const [dataLimit, setDataLimit] = useState(true);
 
     const sortByDate = () => {
-        let sortedData = [...data];
-        sortedData = sortedData.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
-        setData(sortedData);
+        const sortedData = data.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+        setData([...data, sortedData]);
+        console.log(data.length);
     }
 
     useEffect(() => {
