@@ -9,8 +9,7 @@ const App = () => {
 
     const sortByDate = () => {
         const sortedData = data.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
-        setData([...data, sortedData]);
-        console.log(data.length);
+        setData(sortedData);
     }
 
     useEffect(() => {

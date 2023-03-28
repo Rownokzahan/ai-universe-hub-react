@@ -9,7 +9,6 @@ const Modal = (props) => {
             const res = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${props.id}`);
             const data = await res.json();
             setModalInfo(data.data);
-            console.log("useEffect", props.id);
         }
         loadData();
     }, [props.id]);
